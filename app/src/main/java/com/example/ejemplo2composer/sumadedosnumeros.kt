@@ -14,13 +14,13 @@ fun SumaDosNumeros() {
     var num1 by remember { mutableStateOf("") }
     var num2 by remember { mutableStateOf("") }
     var resultado by remember { mutableStateOf("") }
-    var selectedOperation by remember { mutableStateOf("Sumar") }
+    var selectedOperation by remember { mutableStateOf("Sum") } // Default operation
 
     val operations = listOf(
-        "Sumar" to "Sumar",
-        "Restar" to "Restar",
-        "Multiplicar" to "Multiplicar",
-        "Dividir" to "Dividir"
+        "Sumar" to "Sum",
+        "Restar" to "Subtract",
+        "Multiplicar" to "Multiply",
+        "Dividir" to "Divide"
     )
 
     Column(
@@ -44,6 +44,7 @@ fun SumaDosNumeros() {
 
         Spacer(modifier = Modifier.height(8.dp))
 
+        // Radio buttons for operations
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceAround,
@@ -71,10 +72,10 @@ fun SumaDosNumeros() {
 
             resultado = if (n1 != null && n2 != null) {
                 when (selectedOperation) {
-                    "Sumar" -> "Resultado: ${n1 + n2}"
-                    "Restar" -> "Resultado: ${n1 - n2}"
-                    "Multiplicar" -> "Resultado: ${n1 * n2}"
-                    "Dividir" -> {
+                    "Sum" -> "Resultado: ${n1 + n2}"
+                    "Subtract" -> "Resultado: ${n1 - n2}"
+                    "Multiply" -> "Resultado: ${n1 * n2}"
+                    "Divide" -> {
                         if (n2 != 0.0) {
                             "Resultado: ${n1 / n2}"
                         } else {
